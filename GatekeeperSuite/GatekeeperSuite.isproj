@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Project ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<!-- Select a Product Configuration -->
+		<InstallShieldProductConfiguration>Express</InstallShieldProductConfiguration>
+		<!-- Select a Visual Studio Configuration / InstallShield Release -->
+		<Configuration>Debug</Configuration>
+		<InstallShieldRelease>$(Configuration)</InstallShieldRelease>
+	</PropertyGroup>
+	<ItemGroup>
+		<!-- The InstallShieldProject item selects the project to build -->
+		<InstallShieldProject Include="$(MSBuildProjectDirectory)\$(MSBuildProjectName).isl"/>
+		<!-- The InstallShieldReleaseFlags sets Release Flags -->
+		<!--<InstallShieldReleaseFlags Include=""/>-->
+		<!-- The InstallShieldMergeModulePath specifies what directories are
+		searched for Merge Modules -->
+		<!--<InstallShieldMergeModulePath Include=""/>-->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The ProjectReference items refer to any Visual Studio solutions you want to automatically probe for Project Output Groups.  -->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The TaggedOutputs items allow you to explicitly add extra files to output groups. Each item must include both Name and OutputGroup, as well as TargetPath metadata values. -->
+		<!--<TaggedOutputs Include="C:\My Test Exe.exe">
+			<Name>My Test Project</Name>
+			<OutputGroup>Primary output</OutputGroup>
+			<TargetPath>My Test Exe.exe</TargetPath>
+		</TaggedOutputs> -->
+	</ItemGroup>
+	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2015Limited\InstallShield.targets"/>
+	<ItemGroup>
+		<ProjectReference Include="..\Gatekeeper Suite 2016\Gatekeeper Suite 2016.vbproj">
+			<Name>Gatekeeper Suite 2016</Name>
+			<Project>{6F0C9A26-0364-4A1A-9D7B-48B2F9E4E60E}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\Middleman2016\Middleman2016.vbproj">
+			<Name>Middleman2016</Name>
+			<Project>{C5218738-30FC-4BEC-B427-1703E73FCF7B}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\PrinterChooser\PrinterChooser.vbproj">
+			<Name>PrinterChooser</Name>
+			<Project>{F738E644-9BE4-4088-8E9C-A996A65EDBA8}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\UserUtilities\UserUtilities.vbproj">
+			<Name>UserUtilities</Name>
+			<Project>{3766B665-7395-4558-AC92-7B6EA5F63FBD}</Project>
+		</ProjectReference>
+	</ItemGroup>
+</Project>

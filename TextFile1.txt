@@ -1,0 +1,34 @@
+              Dim title As String = Me.Text
+                    If privNeeded() Then
+                        Me.Text = title & " Privileged User (Processing)"
+                        Me.Refresh()
+                        writeStatus("Turn off GPO Refresh")
+                        sendSync("RA|HKLM#SOFTWARE\Policies\Microsoft\Windows\Group Policy\{35378EAC-683F-11D2-A89A-00C04FBBCFA2}#NoBackgroundPolicy||REG_DWORD^", 5000)
+                        sendSync("RA|HKLM#SOFTWARE\Policies\Microsoft\Windows\Group Policy\{35378EAC-683F-11D2-A89A-00C04FBBCFA2}#NoGPOListChanges|0x00000001|REG_DWORD^", 5000)
+                        sendSync("RA|HKCU#" & sid & "\Software\ashby school#privuser|0x00000001|REG_DWORD^")
+                        SetPrivs()
+                    End If
+
+                    Me.Text = title & " Privileged User"
+                Else
+                    lockDesktop()
+                    writeStatus("Turn on GPO Refresh")
+                    sendSync("RA|HKLM#SOFTWARE\Policies\Microsoft\Windows\Group Policy\{35378EAC-683F-11D2-A89A-00C04FBBCFA2}#NoBackgroundPolicy|0x00000000|REG_DWORD^", 5000)
+                    sendSync("RR|HKCU#" & sid & "\Software\ashby school#privuser|REG_DWORD^")
+                    If communication.Contains("1") Then
+                        writeStatus("Refresh Policy")
+                        sendSync("RA|HKCU#" & sid & "\Software\ashby school#privuser|0x00000000|REG_DWORD^")
+                        sendSync("GPUPDATE^", 60000)
+
+                    End If
+
+                End If
+                sendSync("RA|HKCU#" & sid & "\Software\Microsoft\Windows\CurrentVersion\Explorer\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}#|Computer|REG_SZ^")
+                writeStatus("Ready")
+
+
+
+				Need to do something like this.
+
+				When priv user, store flag in local user registry too
+				when not priv, check flag, if set, unset it and refresh policy (gpupdate)
