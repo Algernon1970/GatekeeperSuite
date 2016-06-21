@@ -4448,10 +4448,10 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S0">Value</col>
 		<col def="s72">Component_</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>Registry1</td><td>2</td><td>SOFTWARE\asGatekeeper</td><td>Version</td><td>3.0</td><td>ISX_DEFAULTCOMPONENT5</td><td>0</td></row>
-		<row><td>Registry362</td><td>2</td><td>SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon</td><td>Shell</td><td>C:\Program Files\Ashby School\Gatekeeper2016\Gatekeeper Suite 2016.exe</td><td>ISX_DEFAULTCOMPONENT5</td><td>0</td></row>
-		<row><td>Registry4</td><td>2</td><td>SOFTWARE\Microsoft\Windows NT\CurrentVersion</td><td/><td/><td>ISX_DEFAULTCOMPONENT5</td><td>1</td></row>
-		<row><td>Registry5</td><td>2</td><td>SOFTWARE</td><td/><td/><td>ISX_DEFAULTCOMPONENT5</td><td>1</td></row>
+		<row><td>Registry1</td><td>2</td><td>SOFTWARE\asGatekeeper</td><td>Version</td><td>3.0</td><td>ISX_DEFAULTCOMPONENT2</td><td>0</td></row>
+		<row><td>Registry3</td><td>2</td><td>SOFTWARE</td><td/><td/><td>ISX_DEFAULTCOMPONENT2</td><td>1</td></row>
+		<row><td>Registry362</td><td>2</td><td>SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon</td><td>Shell</td><td>C:\Program Files\Ashby School\Gatekeeper2016\Gatekeeper Suite 2016.exe</td><td>ISX_DEFAULTCOMPONENT2</td><td>0</td></row>
+		<row><td>Registry4</td><td>2</td><td>SOFTWARE\Microsoft\Windows NT\CurrentVersion</td><td/><td/><td>ISX_DEFAULTCOMPONENT2</td><td>1</td></row>
 	</table>
 
 	<table name="RemoveFile">
