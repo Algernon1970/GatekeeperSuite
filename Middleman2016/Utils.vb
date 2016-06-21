@@ -18,7 +18,6 @@ Module Utils
     Private Const SPIF_SENDWININICHANGE As Integer = &H2
     Private Declare Auto Function SystemParametersInfo Lib "user32.dll" (ByVal uAction As Integer, ByVal uParam As Integer, ByVal lpvParam As String, ByVal fuWinIni As Integer) As Integer
 
-
     Dim debugTable As New gatekeeperdbDataSetTableAdapters.debugtableTableAdapter
 
     ''' <summary>
@@ -86,7 +85,6 @@ Module Utils
             End Try
         End If
     End Sub
-
 
     Public Function isLocalAdmin(ByVal PCNAME As String, username As String)
         Try

@@ -158,7 +158,6 @@ Public Class Middleman
             op.keyname = String.Format("HKEY_USERS\{0}\Environment\", sid)
             doRegAdd(op)
 
-
             op.keyname = String.Format("HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{35378EAC-683F-11D2-A89A-00C04FBBCFA2}")
             op.valuetype = "reg_dword"
             op.valuename = "NoBackgroundPolicy"
@@ -254,7 +253,6 @@ Public Class Middleman
 
         Return -1
     End Function
-
 
     Public Function getversion() As MemoryStream
         Dim line As String = My.Computer.Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\asGatekeeper\", "Version", Nothing)
@@ -426,8 +424,8 @@ Public Class Middleman
     ''' <summary>
     ''' Store username, and get the users ID from the DB
     ''' If user not found, store a new entry on the DB and get the ID
-    ''' 
-    ''' 
+    '''
+    '''
     ''' </summary>
     ''' <param name="uname"></param>
     ''' <remarks></remarks>
@@ -570,7 +568,6 @@ Public Class Middleman
 
             End Try
 
-
         End If
     End Sub
 
@@ -585,7 +582,7 @@ Public Class Middleman
 
         Dim path As String = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) & "\Ashby School"
         ' Load local priv file into list of operations
-        If File.Exists(Path & My.Resources.LocalPrivFile) Then
+        If File.Exists(path & My.Resources.LocalPrivFile) Then
             Dim fr As New StreamReader(path & My.Resources.LocalPrivFile)
             Do While fr.Peek() <> -1
                 line = fr.ReadLine()
@@ -671,7 +668,6 @@ Public Class Middleman
             Return False
         End If
     End Function
-
 
     Public Function setWallpaper(ByRef paper As String) As MemoryStream
         Utils.setWallpaper(paper)
@@ -771,7 +767,6 @@ Public Class Middleman
         End Try
 
     End Sub
-
 
     Public Function regread(ByRef req As HttpListenerRequest) As String
         Dim key As String = req.QueryString("key")
@@ -1058,4 +1053,3 @@ Public Enum printerop
     add
     remove
 End Enum
-

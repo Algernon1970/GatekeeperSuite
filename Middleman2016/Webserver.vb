@@ -10,7 +10,6 @@ Public Class Webserver
     Dim middleman As Middleman
     Dim watchdog As New BackgroundWorker
 
-
     Public Sub New(ByRef _caller As Middleman)
         middleman = _caller
     End Sub

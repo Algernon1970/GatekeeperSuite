@@ -172,7 +172,6 @@ Public Class GatekeeperForm
         'handle return from middleman  (ok = fine, notfound = privfile not in database, offlinemode = no access to database)
     End Sub
 
-
     Private Sub AcceptedButton_Click(sender As Object, e As EventArgs) Handles AcceptedButton.Click
         If onlineFlag Then
             Dim plist As List(Of printerInfo) = pc.getSelectedPrinters()
@@ -225,8 +224,8 @@ Public Class GatekeeperForm
                 End If
             Next
             ms = loadAsMS(My.Resources.MAPTHESEPRINTERS & paramString)
-                ' MsgBox(msToString(ms))
-            End If
+            ' MsgBox(msToString(ms))
+        End If
     End Sub
 
     Private Sub LoginInfoBox_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles LoginInfoBox.MouseDoubleClick

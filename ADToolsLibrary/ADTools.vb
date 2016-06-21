@@ -47,7 +47,7 @@ Public Class UserPrincipalEx
         MyBase.New(context)
     End Sub
 
-    ' Implement the constructor with initialization parameters.    
+    ' Implement the constructor with initialization parameters.
     Public Sub New(context As PrincipalContext, samAccountName As String, password As String, enabled As Boolean)
         MyBase.New(context, samAccountName, password, enabled)
     End Sub
@@ -76,7 +76,7 @@ Public Class UserPrincipalEx
 
     End Function
 
-    ' Implement the overloaded search method FindByIdentity. 
+    ' Implement the overloaded search method FindByIdentity.
     Public Shared Shadows Function FindByIdentity(context As PrincipalContext, identityType As IdentityType, identityValue As String) As UserPrincipalEx
         Try
             Return DirectCast(FindByIdentityWithType(context, GetType(UserPrincipalEx), identityType, identityValue), UserPrincipalEx)
@@ -196,7 +196,6 @@ Public Class ADTools
         Else
             usr.UserCannotChangePassword = False
         End If
-
 
         usr.ProfilePath = user.ProfilePath
         usr.HomeDrive = user.HomeDrive
@@ -350,4 +349,3 @@ Public Class ADTools
 
     End Function
 End Class
-
