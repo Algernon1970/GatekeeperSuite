@@ -3,18 +3,19 @@ Imports System.Text
 Imports System.Xml.Serialization
 Imports System.Net
 Imports System.Runtime.InteropServices
-Imports murrayju.ProcessExtensions
-Imports ADToolsLibrary
+
 Imports System.DirectoryServices.AccountManagement
 Imports System.Configuration
 Imports System.ComponentModel
+Imports AshbyTools.murrayju.ProcessExtensions
+Imports AshbyTools
 
 Public Class Middleman
     Dim ws As New Webserver(Me)
     Dim user As New user
     Dim online As Boolean
     Dim computerID As Integer = 0
-    Dim adTools As New ADTools()
+
     Dim localAppData As Boolean = False
 
     Dim getUserIDOverflow As Boolean = False
