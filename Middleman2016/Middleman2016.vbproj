@@ -87,7 +87,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AshbyTools">
-      <HintPath>..\..\AshbyLibrary\AshbyTools\AshbyTools\bin\Debug\AshbyTools.dll</HintPath>
+      <HintPath>..\..\AS-Library-Tools\AshbyTools\AshbyTools\bin\Debug\AshbyTools.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data">
       <HintPath>..\..\..\..\MySQLConnector\bin\MySql.Data.dll</HintPath>
@@ -212,6 +212,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ADToolsLibrary\ADToolsLibrary.vbproj">
+      <Project>{CD8AF7D8-4720-423B-AD71-251FC7DFB7E5}</Project>
+      <Name>ADToolsLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

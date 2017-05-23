@@ -2,13 +2,10 @@
 Imports System.Text
 Imports System.Xml.Serialization
 Imports System.Net
-Imports System.Runtime.InteropServices
 
 Imports System.DirectoryServices.AccountManagement
 Imports System.Configuration
-Imports System.ComponentModel
 Imports AshbyTools.murrayju.ProcessExtensions
-Imports AshbyTools
 
 Public Class Middleman
     Dim ws As New Webserver(Me)
@@ -74,8 +71,8 @@ Public Class Middleman
     End Function
 
     Private Function checkGroup(ByVal grpName As String) As Boolean
-        Using ctx As PrincipalContext = ADTools.getConnection("as.internal", "OU=Security Groups,OU=AS Groups,OU=Ashby School,DC=as,DC=internal")
-            Using gtx As GroupPrincipal = ADTools.getGroupPrincipalbyName(ctx, grpName)
+        Using ctx As PrincipalContext = ADToolsLibrary.ADTools.getConnection("as.internal", "OU=Security Groups,OU=AS Groups,OU=Ashby School,DC=as,DC=internal")
+            Using gtx As GroupPrincipal = ADToolsLibrary.ADTools.getGroupPrincipalbyName(ctx, grpName)
                 For Each member In gtx.GetMembers
                     Dim name As String = member.Name
                     If name.Equals(My.Computer.Name) Then
