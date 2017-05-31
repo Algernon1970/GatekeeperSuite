@@ -340,15 +340,16 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
-		<row><td>ADToolsLibrary.Primary_output</td><td>{9AF45A43-4648-45EE-8FCE-2B5C5D2349E4}</td><td>INSTALLDIR</td><td>2</td><td/><td>adtoolslibrary.primary_outpu</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Gatekeeper_Suite_2016.Primary_output</td><td>{8332F8EC-863A-47E9-AE85-90F841264F4A}</td><td>INSTALLDIR</td><td>2</td><td/><td>gatekeeper_suite_2016.primar</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ADToolsLibrary.Primary_output</td><td>{9AF45A43-4648-45EE-8FCE-2B5C5D2349E4}</td><td>INSTALLDIR</td><td>258</td><td/><td>adtoolslibrary.primary_outpu</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Gatekeeper_Suite_2016.Primary_output</td><td>{8332F8EC-863A-47E9-AE85-90F841264F4A}</td><td>INSTALLDIR</td><td>258</td><td/><td>gatekeeper_suite_2016.primar</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{4D29D017-450D-410C-AA6A-CA951551229D}</td><td>ProgramFiles64Folder</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{6067D6FB-D2F1-4E10-9C6F-E38FD6E39378}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{5E0E71B4-9B53-4581-962F-80DAE52E47A6}</td><td>INSTALLDIR</td><td>258</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{6067D6FB-D2F1-4E10-9C6F-E38FD6E39378}</td><td>INSTALLDIR</td><td>258</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT3</td><td>{272B48EA-F475-47E0-87C1-0BF50EB83C57}</td><td>ProgramFilesFolder</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT4</td><td>{5EAE6A14-95CD-4625-A01F-D2FADB7E86AE}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT5</td><td>{24BAAC1C-9CFE-4851-BE4F-A7605138954A}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Middleman2016.Primary_output</td><td>{0FED72DC-65FB-4C7B-9185-565B4AA7A78A}</td><td>INSTALLDIR</td><td>2</td><td/><td>middleman2016.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>UserUtilities.Primary_output</td><td>{BBB49EEE-82F0-4BB6-95A1-E6737A1D03E5}</td><td>INSTALLDIR</td><td>2</td><td/><td>userutilities.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT4</td><td>{5EAE6A14-95CD-4625-A01F-D2FADB7E86AE}</td><td>INSTALLDIR</td><td>258</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT5</td><td>{24BAAC1C-9CFE-4851-BE4F-A7605138954A}</td><td>INSTALLDIR</td><td>258</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Middleman2016.Primary_output</td><td>{0FED72DC-65FB-4C7B-9185-565B4AA7A78A}</td><td>INSTALLDIR</td><td>258</td><td/><td>middleman2016.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>UserUtilities.Primary_output</td><td>{BBB49EEE-82F0-4BB6-95A1-E6737A1D03E5}</td><td>INSTALLDIR</td><td>258</td><td/><td>userutilities.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1061,6 +1062,7 @@
 		<row><td>INSTALLDIR</td><td>ADToolsLibrary.Primary_output</td></row>
 		<row><td>INSTALLDIR</td><td>Gatekeeper_Suite_2016.Primary_output</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT3</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT4</td></row>
@@ -1148,7 +1150,7 @@
 		<col def="I4">ISAttributes</col>
 		<col def="S255">ISFolderName</col>
 		<row><td>ALLUSERSPROFILE</td><td>TARGETDIR</td><td>.:ALLUSE~1|All Users</td><td/><td>0</td><td/></row>
-		<row><td>ASHBY_SCHOOL</td><td>ProgramFilesFolder</td><td>ASHBYS~1|Ashby School</td><td/><td>0</td><td/></row>
+		<row><td>ASHBY_SCHOOL</td><td>ProgramFiles64Folder</td><td>ASHBYS~1|Ashby School</td><td/><td>0</td><td/></row>
 		<row><td>AdminToolsFolder</td><td>TARGETDIR</td><td>.:Admint~1|AdminTools</td><td/><td>0</td><td/></row>
 		<row><td>AppDataFolder</td><td>TARGETDIR</td><td>.:APPLIC~1|Application Data</td><td/><td>0</td><td/></row>
 		<row><td>CommonAppDataFolder</td><td>TARGETDIR</td><td>.:Common~1|CommonAppData</td><td/><td>0</td><td/></row>
@@ -1881,6 +1883,7 @@
 		<row><td>AlwaysInstall</td><td>ADToolsLibrary.Primary_output</td></row>
 		<row><td>AlwaysInstall</td><td>Gatekeeper_Suite_2016.Primary_output</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT3</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT4</td></row>
@@ -2049,6 +2052,7 @@
 		<row><td>ADToolsLibrary.Primary_output</td><td/><td/><td>_7276D627_0266_4139_9D34_7C621DE7F68D_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>Gatekeeper_Suite_2016.Primary_output</td><td/><td/><td>_403A4464_DB55_4EEC_8C97_EAB8E28984EA_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_88CE1972_B677_4BE1_A54E_1922E15BEFBE_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_E47B7E5B_4477_426D_8730_AF0ACFFFEC24_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_9AFB4BFB_33AC_4A87_9BE4_3AD649A83BCD_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT3</td><td/><td/><td>_0B7C5A97_ED6E_4398_8730_DDC779F16FF4_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT4</td><td/><td/><td>_C974916F_16A4_43F0_B22D_A2E8872F5E64_FILTER</td><td/><td/><td/><td/></row>
@@ -4448,10 +4452,10 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S0">Value</col>
 		<col def="s72">Component_</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>Registry1</td><td>2</td><td>SOFTWARE\asGatekeeper</td><td>Version</td><td>3.0</td><td>ISX_DEFAULTCOMPONENT2</td><td>0</td></row>
-		<row><td>Registry3</td><td>2</td><td>SOFTWARE</td><td/><td/><td>ISX_DEFAULTCOMPONENT2</td><td>1</td></row>
-		<row><td>Registry362</td><td>2</td><td>SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon</td><td>Shell</td><td>C:\Program Files\Ashby School\Gatekeeper2016\Gatekeeper Suite 2016.exe</td><td>ISX_DEFAULTCOMPONENT2</td><td>0</td></row>
-		<row><td>Registry4</td><td>2</td><td>SOFTWARE\Microsoft\Windows NT\CurrentVersion</td><td/><td/><td>ISX_DEFAULTCOMPONENT2</td><td>1</td></row>
+		<row><td>Registry1</td><td>2</td><td>SOFTWARE\asGatekeeper</td><td>Version</td><td>3.0</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry2</td><td>2</td><td>SOFTWARE</td><td/><td/><td>ISX_DEFAULTCOMPONENT1</td><td>1</td></row>
+		<row><td>Registry362</td><td>2</td><td>SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon</td><td>Shell</td><td>C:\Program Files\Ashby School\Gatekeeper2016\Gatekeeper Suite 2016.exe</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry4</td><td>2</td><td>SOFTWARE\Microsoft\Windows NT\CurrentVersion</td><td/><td/><td>ISX_DEFAULTCOMPONENT1</td><td>1</td></row>
 	</table>
 
 	<table name="RemoveFile">

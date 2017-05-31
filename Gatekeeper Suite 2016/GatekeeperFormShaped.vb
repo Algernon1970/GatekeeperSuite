@@ -9,6 +9,7 @@ Public Class GatekeeperFormShaped
     Dim ms As MemoryStream
     Dim pc As New PrintSelectorShaped
     Dim onlineFlag As Boolean = False
+    Dim versionString = "v1.03 32bit"
 
     Private Sub GatekeeperForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         mainLoad()
@@ -171,7 +172,7 @@ Public Class GatekeeperFormShaped
         'handle return from middleman  (ok = fine, notfound = privfile not in database, offlinemode = no access to database)
     End Sub
 
-    Private Sub AcceptedButton_Click(sender As Object, e As EventArgs) Handles AcceptButton.Click
+    Private Sub AcceptedButton_Click(sender As Object, e As EventArgs) Handles myAcceptButton.Click
         If onlineFlag Then
             Dim plist As List(Of printerInfo) = pc.getSelectedPrinters()
             ms = WebLoader.loadAsMS(My.Resources.SETUSERPRINTERS & plistToString(plist))
@@ -204,6 +205,10 @@ Public Class GatekeeperFormShaped
             ms = WebLoader.loadAsMS(My.Resources.MAPTHESEPRINTERS & paramString)
             ' MsgBox(msToString(ms))
         End If
+    End Sub
+
+    Private Sub OnlineStatusBall_Click(sender As Object, e As EventArgs) Handles OnlineStatusBall.Click
+        versionLabel.Text = versionString
     End Sub
 
 #End Region

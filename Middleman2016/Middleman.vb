@@ -2,17 +2,19 @@
 Imports System.Text
 Imports System.Xml.Serialization
 Imports System.Net
-
+Imports System.Runtime.InteropServices
+Imports ADToolsLibrary
 Imports System.DirectoryServices.AccountManagement
 Imports System.Configuration
-Imports AshbyTools.murrayju.ProcessExtensions
+Imports System.ComponentModel
+Imports AshbyTools
 
 Public Class Middleman
     Dim ws As New Webserver(Me)
     Dim user As New user
     Dim online As Boolean
     Dim computerID As Integer = 0
-
+    'Dim adTools As New AshbyTools.ADTools
     Dim localAppData As Boolean = False
 
     Dim getUserIDOverflow As Boolean = False
@@ -71,8 +73,8 @@ Public Class Middleman
     End Function
 
     Private Function checkGroup(ByVal grpName As String) As Boolean
-        Using ctx As PrincipalContext = ADToolsLibrary.ADTools.getConnection("as.internal", "OU=Security Groups,OU=AS Groups,OU=Ashby School,DC=as,DC=internal")
-            Using gtx As GroupPrincipal = ADToolsLibrary.ADTools.getGroupPrincipalbyName(ctx, grpName)
+        Using ctx As PrincipalContext = AshbyTools.ADTools.getConnection("as.internal", "OU=Security Groups,OU=AS Groups,OU=Ashby School,DC=as,DC=internal")
+            Using gtx As GroupPrincipal = AshbyTools.ADTools.getGroupPrincipalbyName(ctx, grpName)
                 For Each member In gtx.GetMembers
                     Dim name As String = member.Name
                     If name.Equals(My.Computer.Name) Then
@@ -358,26 +360,26 @@ Public Class Middleman
         If cmdline.Contains(",") Then
             cmd = cmdline.Split(",", 2, StringSplitOptions.RemoveEmptyEntries)
             GatekeeperSuiteEvents.WriteEntry(String.Format("Call External {0}, {1}", cmd(0), cmd(1)))
-            ProcessExtensions.StartProcessAsCurrentUser(cmd(0), cmd(1))
+            murrayju.ProcessExtensions.ProcessExtensions.StartProcessAsCurrentUser(cmd(0), cmd(1))
         Else
             GatekeeperSuiteEvents.WriteEntry(String.Format("Call External {0}", cmdline))
-            ProcessExtensions.StartProcessAsCurrentUser(cmdline)
+            murrayju.ProcessExtensions.ProcessExtensions.StartProcessAsCurrentUser(cmdline)
         End If
         Return New MemoryStream(Encoding.UTF8.GetBytes("OK"))
     End Function
 
     Public Function lockWorkstation() As MemoryStream
-        ProcessExtensions.StartProcessAsCurrentUser("C:\program files\ashby school\gatekeeper2016\userutilities.exe", "Utilities " & My.Resources.LOCK, "C:\program files\ashby school\gatekeeper2016", True)
+        murrayju.ProcessExtensions.ProcessExtensions.StartProcessAsCurrentUser("C:\program files\ashby school\gatekeeper2016\userutilities.exe", "Utilities " & My.Resources.LOCK, "C:\program files\ashby school\gatekeeper2016", True)
         Return New MemoryStream(Encoding.UTF8.GetBytes("OK"))
     End Function
 
     Public Function gpupdate() As MemoryStream
-        ProcessExtensions.StartProcessAsCurrentUser("C:\program files\ashby school\gatekeeper2016\userutilities.exe", "Utilities " & My.Resources.GPUPDATE, "C:\program files\ashby school\gatekeeper2016", True)
+        murrayju.ProcessExtensions.ProcessExtensions.StartProcessAsCurrentUser("C:\program files\ashby school\gatekeeper2016\userutilities.exe", "Utilities " & My.Resources.GPUPDATE, "C:\program files\ashby school\gatekeeper2016", True)
         Return New MemoryStream(Encoding.UTF8.GetBytes("OK"))
     End Function
 
     Public Function messageUser(ByVal message As String)
-        ProcessExtensions.StartProcessAsCurrentUser("C:\program files\ashby school\gatekeeper2016\userutilities.exe", "Utilities " & My.Resources.MSG & message)
+        murrayju.ProcessExtensions.ProcessExtensions.StartProcessAsCurrentUser("C:\program files\ashby school\gatekeeper2016\userutilities.exe", "Utilities " & My.Resources.MSG & message)
         Return New MemoryStream(Encoding.UTF8.GetBytes("OK"))
     End Function
 
@@ -979,7 +981,7 @@ Public Class Middleman
                 pinfo.name = prow.Field(Of String)("PrinterName")
                 Dim def As String = If(prow.Field(Of Boolean)("isDefault"), My.Resources.PRINTERDEFAULT, "fj67T3xH")
                 GatekeeperSuiteEvents.WriteEntry(String.Format("mapMyPrinters : {0}({1})", pinfo.connection, def))
-                ProcessExtensions.StartProcessAsCurrentUser("C:\program files\ashby school\gatekeeper2016\userutilities.exe",
+                murrayju.ProcessExtensions.ProcessExtensions.StartProcessAsCurrentUser("C:\program files\ashby school\gatekeeper2016\userutilities.exe",
                                                             String.Format("utilites {4}{3}{0}{3},{1},{2}", pinfo.name, pinfo.connection, def, ControlChars.Quote, My.Resources.PRINTER))
             Next
             mapUserPrinters()
@@ -1014,7 +1016,7 @@ Public Class Middleman
                         def = "fj67T3xH"
                     End If
                     GatekeeperSuiteEvents.WriteEntry(String.Format("MapUserPrinters: {0} ({1})", pinfo.connection, def), EventLogEntryType.Information)
-                    ProcessExtensions.StartProcessAsCurrentUser("C:\program files\ashby school\gatekeeper2016\userutilities.exe",
+                    murrayju.ProcessExtensions.ProcessExtensions.StartProcessAsCurrentUser("C:\program files\ashby school\gatekeeper2016\userutilities.exe",
                                                            String.Format("utilites {4}{3}{0}{3},{1},{2}", pinfo.name, pinfo.connection, def, ControlChars.Quote, My.Resources.PRINTER))
                 End If
 
