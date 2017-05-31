@@ -22,24 +22,23 @@ Partial Class GatekeeperFormShaped
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.myAcceptButton = New System.Windows.Forms.PictureBox()
+        Me.AcceptButton = New System.Windows.Forms.PictureBox()
         Me.DeclineButton = New System.Windows.Forms.PictureBox()
         Me.Outbox = New System.Windows.Forms.RichTextBox()
         Me.OnlineStatusBall = New System.Windows.Forms.PictureBox()
-        Me.versionLabel = New System.Windows.Forms.Label()
-        CType(Me.myAcceptButton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AcceptButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DeclineButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OnlineStatusBall, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'myAcceptButton
+        'AcceptButton
         '
-        Me.myAcceptButton.BackColor = System.Drawing.Color.Transparent
-        Me.myAcceptButton.Location = New System.Drawing.Point(544, 451)
-        Me.myAcceptButton.Name = "myAcceptButton"
-        Me.myAcceptButton.Size = New System.Drawing.Size(121, 128)
-        Me.myAcceptButton.TabIndex = 0
-        Me.myAcceptButton.TabStop = False
+        Me.AcceptButton.BackColor = System.Drawing.Color.Transparent
+        Me.AcceptButton.Location = New System.Drawing.Point(544, 451)
+        Me.AcceptButton.Name = "AcceptButton"
+        Me.AcceptButton.Size = New System.Drawing.Size(121, 128)
+        Me.AcceptButton.TabIndex = 0
+        Me.AcceptButton.TabStop = False
         '
         'DeclineButton
         '
@@ -71,14 +70,6 @@ Partial Class GatekeeperFormShaped
         Me.OnlineStatusBall.TabIndex = 3
         Me.OnlineStatusBall.TabStop = False
         '
-        'versionLabel
-        '
-        Me.versionLabel.AutoSize = True
-        Me.versionLabel.Location = New System.Drawing.Point(157, 573)
-        Me.versionLabel.Name = "versionLabel"
-        Me.versionLabel.Size = New System.Drawing.Size(0, 13)
-        Me.versionLabel.TabIndex = 4
-        '
         'GatekeeperFormShaped
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -87,11 +78,10 @@ Partial Class GatekeeperFormShaped
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(668, 603)
         Me.ControlBox = False
-        Me.Controls.Add(Me.versionLabel)
         Me.Controls.Add(Me.OnlineStatusBall)
         Me.Controls.Add(Me.Outbox)
         Me.Controls.Add(Me.DeclineButton)
-        Me.Controls.Add(Me.myAcceptButton)
+        Me.Controls.Add(Me.AcceptButton)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -101,17 +91,15 @@ Partial Class GatekeeperFormShaped
         Me.Text = "GatekeeperFormShaped"
         Me.TopMost = True
         Me.TransparencyKey = System.Drawing.Color.White
-        CType(Me.myAcceptButton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AcceptButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DeclineButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OnlineStatusBall, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents myAcceptButton As PictureBox
+    Friend WithEvents AcceptButton As PictureBox
     Friend WithEvents DeclineButton As PictureBox
     Friend WithEvents Outbox As RichTextBox
     Friend WithEvents OnlineStatusBall As PictureBox
-    Friend WithEvents versionLabel As Label
 End Class
