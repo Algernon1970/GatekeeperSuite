@@ -4,9 +4,9 @@ Imports System.Xml.Serialization
 Imports System.Net
 Imports System.Runtime.InteropServices
 Imports murrayju.ProcessExtensions
-Imports ADToolsLibrary
 Imports System.DirectoryServices.AccountManagement
 Imports System.Configuration
+Imports AshbyTools
 Imports System.ComponentModel
 
 Public Class Middleman
@@ -14,11 +14,12 @@ Public Class Middleman
     Dim user As New user
     Dim online As Boolean
     Dim computerID As Integer = 0
-    Dim adTools As New ADTools()
     Dim localAppData As Boolean = False
+    Dim DBIP As String = "\\svr-deploy1\deploy$\gatekeeperDB.ipa"
 
     Dim getUserIDOverflow As Boolean = False
     Dim countstop As Integer = 0
+    Dim ipa As String = "empty"
 
     Dim debugTable As New gatekeeperdbDataSetTableAdapters.debugtableTableAdapter
 
@@ -29,8 +30,38 @@ Public Class Middleman
         config.Save(ConfigurationSaveMode.Full, True)
     End Sub
 
+    ''' <summary>
+    ''' check file for IP address of server to use, and return the connectionstring for that server
+    ''' 
+    ''' </summary>
+    ''' <returns></returns>
+    Private Function getConnectionString() As String
+        If File.Exists(DBIP) Then
+            Using sr As StreamReader = New StreamReader(DBIP)
+                Try
+                    ipa = sr.ReadLine()
+                Catch ex As Exception
+
+                End Try
+            End Using
+        End If
+        If Not ipa.Equals("empty") Then
+            Return String.Format("server={0};user id=gatekeeper;password=BrightMonday;database=gatekeeperdb;port=3306;certificatestorelocation=None;persistsecurityinfo=True;sslmode=None", ipa)
+        End If
+        Return "empty"
+    End Function
+
+    Public Function getIPA() As MemoryStream
+        Return New MemoryStream(Encoding.UTF8.GetBytes(ipa))
+    End Function
+
     Protected Overrides Sub OnStart(ByVal args() As String)
-        GatekeeperSuiteEvents.WriteEntry("Middleman Start")
+        GatekeeperSuiteEvents.WriteEntry("Middleman Starting")
+        Dim cs As String = getConnectionString()
+        If Not cs.Equals("empty") Then
+            My.Settings("gatekeeperdbConnectionString") = getConnectionString()
+        End If
+
         protectSettings()
         user.sid = "0"
         user.userName = "noone"
@@ -39,17 +70,20 @@ Public Class Middleman
         ' recordVersion()
         latchGateKeeper()
         checkOnline()
+        Dim id As Integer = GetComputerID()
+        GatekeeperSuiteEvents.WriteEntry("ID = " & id)
         ws.startServer()
+        GatekeeperSuiteEvents.WriteEntry("Middleman Webservice started")
     End Sub
 
     Private Sub recordVersion()
-        Dim op As New regop
-        op.keyname = "HKEY_LOCAL_MACHINE\SOFTWARE\asGatekeeper\"
-        op.valuename = "Version"
-        op.value = "3.0"
-        op.valuetype = "reg_sz"
-        op.hive = reghive.machine
-        doRegAdd(op)
+        'Dim op As New regop
+        'op.keyname = "HKEY_LOCAL_MACHINE\SOFTWARE\asGatekeeper\"
+        'op.valuename = "MiddlemanVersion"
+        'op.value = "1.30"
+        'op.valuetype = "reg_sz"
+        'op.hive = reghive.machine
+        'doRegAdd(op)
     End Sub
 
     Protected Overrides Sub OnStop()
@@ -61,6 +95,7 @@ Public Class Middleman
             Dim myId As Integer = GetComputerID()
 
             InfotableTableAdapter1.Fill(GatekeeperdbDataSet1.Tables("InfoTable"))
+
             ComputertableTableAdapter1.FillBy(GatekeeperdbDataSet1.Tables("computertable"), My.Computer.Name)
             online = True
             cleanPrivs()
@@ -190,18 +225,6 @@ Public Class Middleman
         Return New MemoryStream(Encoding.UTF8.GetBytes("OK"))
     End Function
 
-    Public Function recordLogin() As MemoryStream
-        If online Then
-            getUserIDOverflow = False
-            Dim computerID As Integer = GetComputerID()
-            Dim userID As Integer = getUserID(Environment.UserName)
-            storeLogin(computerID, userID)
-            Return New MemoryStream(Encoding.UTF8.GetBytes("OK"))
-        Else
-            Return New MemoryStream(Encoding.UTF8.GetBytes("OFFLINE"))
-        End If
-    End Function
-
     Private Sub storeLogin(ByVal computer As Integer, ByVal user As Integer)
         If online Then
             Try
@@ -232,25 +255,47 @@ Public Class Middleman
         Return -1
     End Function
 
-    ''' <summary>
-    ''' Get/store computer in DB
-    ''' </summary>
-    ''' <returns>Key to Computertable</returns>
+    '''' <summary>
+    '''' Get/store computer in DB
+    '''' </summary>
+    '''' <returns>Key to Computertable</returns>
+    'Private Function GetComputerID() As Integer
+    '    If online Then
+    '        Try
+    '            Dim drs() As DataRow = GatekeeperdbDataSet1.Tables("computertable").Select(String.Format("Name like '{0}'", My.Computer.Name))
+    '            If drs.Count = 0 Then
+    '                ComputertableTableAdapter1.Insert(My.Computer.Name)
+    '                ComputertableTableAdapter1.FillBy(GatekeeperdbDataSet1.Tables("computertable"), My.Computer.Name)
+    '            End If
+    '            Dim jar() As DataRow = GatekeeperdbDataSet1.Tables("computertable").Select(String.Format("Name like '{0}'", My.Computer.Name))
+    '            Return jar(0).Field(Of Integer)("Id")
+    '        Catch ex As Exception
+    '            Return -1
+    '        End Try
+    '    End If
+
+    '    Return -1
+    'End Function
+
     Private Function GetComputerID() As Integer
         If online Then
+            Dim id As Integer = 0
             Try
-                Dim drs() As DataRow = GatekeeperdbDataSet1.Tables("computertable").Select(String.Format("Name like '{0}'", My.Computer.Name))
-                If drs.Count = 0 Then
-                    ComputertableTableAdapter1.Insert(My.Computer.Name)
-                    ComputertableTableAdapter1.FillBy(GatekeeperdbDataSet1.Tables("computertable"), My.Computer.Name)
-                End If
-                Dim jar() As DataRow = GatekeeperdbDataSet1.Tables("computertable").Select(String.Format("Name like '{0}'", My.Computer.Name))
-                Return jar(0).Field(Of Integer)("Id")
+                id = ComputertableTableAdapter1.GetIDByName(My.Computer.Name)
+                GatekeeperSuiteEvents.WriteEntry("Lookup success " & id)
             Catch ex As Exception
-                Return -1
+                GatekeeperSuiteEvents.WriteEntry("Lookup Failed : " & ex.Message, EventLogEntryType.Error)
+                GatekeeperSuiteEvents.WriteEntry("Creating Entry")
+                DebugtableTableAdapter1.Insert(Now, "Lookup " & My.Computer.Name & " failed: " & ex.Message, My.Computer.Name, 0)
+                ComputertableTableAdapter1.Insert(My.Computer.Name)
+                Threading.Thread.Sleep(1000)
+                id = ComputertableTableAdapter1.GetIDByName(My.Computer.Name)
+                GatekeeperSuiteEvents.WriteEntry("Create Entry success " & id)
+                DebugtableTableAdapter1.Insert(Now, "Created " & My.Computer.Name, My.Computer.Name, id)
             End Try
-        End If
 
+            Return id
+        End If
         Return -1
     End Function
 
@@ -486,6 +531,7 @@ Public Class Middleman
             gpoBackgroundProcessing(False)
             redirectDesktop("%userprofile%\desktop")
             user.priv = True
+            localAdmin(".", user.userName.ToLower)
             ms = New MemoryStream(Encoding.UTF8.GetBytes("PRIV"))
         Else
             user.priv = False

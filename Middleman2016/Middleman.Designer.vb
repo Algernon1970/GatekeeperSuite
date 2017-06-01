@@ -50,6 +50,7 @@ Partial Class Middleman
         Me.ComputertableTableAdapter1 = New Middleman2016.gatekeeperdbDataSetTableAdapters.computertableTableAdapter()
         Me.ComputerprinterTableAdapter1 = New Middleman2016.gatekeeperdbDataSetTableAdapters.computerprinterTableAdapter()
         Me.GatekeeperSuiteEvents = New System.Diagnostics.EventLog()
+        Me.DebugtableTableAdapter1 = New Middleman2016.gatekeeperdbDataSetTableAdapters.debugtableTableAdapter()
         CType(Me.GatekeeperdbDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GatekeeperSuiteEvents, System.ComponentModel.ISupportInitialize).BeginInit()
         '
@@ -91,9 +92,13 @@ Partial Class Middleman
         Me.GatekeeperSuiteEvents.Log = "GatekeeperSuite"
         Me.GatekeeperSuiteEvents.Source = "Middleman"
         '
+        'DebugtableTableAdapter1
+        '
+        Me.DebugtableTableAdapter1.ClearBeforeFill = True
+        '
         'Middleman
         '
-        Me.ServiceName = "Service1"
+        Me.ServiceName = "MiddlemanService"
         CType(Me.GatekeeperdbDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GatekeeperSuiteEvents, System.ComponentModel.ISupportInitialize).EndInit()
 
@@ -107,4 +112,5 @@ Partial Class Middleman
     Friend WithEvents ComputertableTableAdapter1 As Middleman2016.gatekeeperdbDataSetTableAdapters.computertableTableAdapter
     Friend WithEvents ComputerprinterTableAdapter1 As Middleman2016.gatekeeperdbDataSetTableAdapters.computerprinterTableAdapter
     Friend WithEvents GatekeeperSuiteEvents As EventLog
+    Friend WithEvents DebugtableTableAdapter1 As gatekeeperdbDataSetTableAdapters.debugtableTableAdapter
 End Class

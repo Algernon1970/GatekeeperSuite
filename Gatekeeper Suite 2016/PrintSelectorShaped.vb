@@ -54,7 +54,6 @@
         Next
         Return cpList
     End Function
-
     Private Sub PrinterListBox_MouseMove(sender As Object, e As MouseEventArgs) Handles PrinterListBox.MouseMove
         PrinterListBox.SelectedIndex = PrinterListBox.IndexFromPoint(e.X, e.Y)
     End Sub

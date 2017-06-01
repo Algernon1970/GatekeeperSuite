@@ -22,6 +22,7 @@
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.EventLogInstaller1 = New System.Diagnostics.EventLogInstaller()
+        Me.EventLogInstaller2 = New System.Diagnostics.EventLogInstaller()
         '
         'EventLogInstaller1
         '
@@ -32,11 +33,21 @@
         Me.EventLogInstaller1.ParameterResourceFile = Nothing
         Me.EventLogInstaller1.Source = "Middleman"
         '
+        'EventLogInstaller2
+        '
+        Me.EventLogInstaller2.CategoryCount = 0
+        Me.EventLogInstaller2.CategoryResourceFile = Nothing
+        Me.EventLogInstaller2.Log = "GatekeeperSuite"
+        Me.EventLogInstaller2.MessageResourceFile = Nothing
+        Me.EventLogInstaller2.ParameterResourceFile = Nothing
+        Me.EventLogInstaller2.Source = "Gatekeeper"
+        '
         'ProjectInstaller
         '
-        Me.Installers.AddRange(New System.Configuration.Install.Installer() {Me.EventLogInstaller1})
+        Me.Installers.AddRange(New System.Configuration.Install.Installer() {Me.EventLogInstaller1, Me.EventLogInstaller2})
 
     End Sub
 
     Public WithEvents EventLogInstaller1 As EventLogInstaller
+    Public WithEvents EventLogInstaller2 As EventLogInstaller
 End Class

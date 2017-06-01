@@ -57,8 +57,9 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("server=192.168.5.62;user id=gatekeeper;password=BrightMonday;database=gatekeeperd"& _ 
-            "b;port=3306;certificatestorelocation=None;persistsecurityinfo=True;sslmode=None")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("server=192.168.5.209;user id=gatekeeper;password=BrightMonday;database=gatekeeper"& _ 
+            "db;port=3306;certificatestorelocation=None;persistsecurityinfo=True;sslmode=None"& _ 
+            "")>  _
         Public ReadOnly Property gatekeeperdbConnectionString() As String
             Get
                 Return CType(Me("gatekeeperdbConnectionString"),String)

@@ -170,7 +170,6 @@ Public Class ComputerManagerForm
         Return -1
     End Function
 
-
     Private Sub savePriv(ByVal location As String, ByVal user As String)
         Dim pid As Integer = -1
         Dim cid As Integer = -1
@@ -206,7 +205,6 @@ Public Class ComputerManagerForm
             Return -99
         End If
     End Function
-
 
     Private Sub addPriv(ByVal location As String)
         Dim pUser As String = requestString()

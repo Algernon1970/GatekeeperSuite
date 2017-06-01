@@ -13,7 +13,8 @@
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile />
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Release\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,10 +24,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.3.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -69,7 +70,7 @@
     <DocumentationFile>Gatekeeper Suite 2016.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DebugType>full</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
@@ -84,13 +85,35 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>09C052C5D760048B720495DC29DF11EC2CD07D9B</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Gatekeeper Suite 2016_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AS365Cookie">
+      <HintPath>..\..\AS365Cookie\AS365Cookie\AS365Cookie\bin\Debug\AS365Cookie.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
     <Reference Include="System.ServiceProcess" />
@@ -115,12 +138,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GatekeeperForm.Designer.vb">
-      <DependentUpon>GatekeeperForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="GatekeeperForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="DriveMapper.vb" />
     <Compile Include="GatekeeperFormShaped.Designer.vb">
       <DependentUpon>GatekeeperFormShaped.vb</DependentUpon>
     </Compile>
@@ -142,6 +160,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="PasswordRequestForm.Designer.vb">
+      <DependentUpon>PasswordRequestForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordRequestForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PrinterSelector.Designer.vb">
       <DependentUpon>PrinterSelector.vb</DependentUpon>
     </Compile>
@@ -154,6 +178,9 @@
     <Compile Include="PrintSelectorShaped.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Serializer.vb" />
+    <Compile Include="settings.vb" />
+    <Compile Include="Simple3Des.vb" />
     <Compile Include="testoutput.Designer.vb">
       <DependentUpon>testoutput.vb</DependentUpon>
     </Compile>
@@ -161,14 +188,13 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="utils.vb" />
+    <Compile Include="Watchdog.vb" />
     <Compile Include="WebLoader.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="GatekeeperForm.resx">
-      <DependentUpon>GatekeeperForm.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GatekeeperFormShaped.resx">
       <DependentUpon>GatekeeperFormShaped.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>PublicVbMyResourcesResXFileCodeGenerator</Generator>
@@ -176,17 +202,24 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="PasswordRequestForm.resx">
+      <DependentUpon>PasswordRequestForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="PrinterSelector.resx">
       <DependentUpon>PrinterSelector.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrintSelectorShaped.resx">
       <DependentUpon>PrintSelectorShaped.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="testoutput.resx">
       <DependentUpon>testoutput.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -232,6 +265,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Log in box flat.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\greencloud.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redcloud.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\whitecloud.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\AshbyLibraryProjects\AshbyTools\AshbyTools\AshbyTools.vbproj">
+      <Project>{845e5fda-4707-4dc3-bce5-a7a3dd4411f0}</Project>
+      <Name>AshbyTools</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

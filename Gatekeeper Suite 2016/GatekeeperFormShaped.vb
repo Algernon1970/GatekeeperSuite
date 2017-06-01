@@ -3,19 +3,35 @@ Imports System.Net
 Imports System.IO
 Imports System.Xml.Serialization
 Imports System.Drawing.Printing
+Imports System.Environment
 
 Public Class GatekeeperFormShaped
     Dim dummy As String
     Dim ms As MemoryStream
     Dim pc As New PrintSelectorShaped
     Dim onlineFlag As Boolean = False
-    Dim versionString = "v1.03 32bit"
+    Dim wd As New Watchdog(GatekeeperEvents)
 
     Private Sub GatekeeperForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AddHandler wd.watchdogevent, AddressOf watchdogeventhandler
+        wd.startwatcher(Me.NotifyIcon1)
+        NotifyIcon1.Visible = False
+        Dim version As String = regread("HKEY_LOCAL_MACHINE\SOFTWARE\asGateKeeper", "version")
+        NotifyIcon1.Text = "One Drive Mapper v" & version
         mainLoad()
     End Sub
 
+    Private Sub watchdogeventhandler(ByVal message As String)
+        Try
+            GatekeeperEvents.WriteEntry(message)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
+
     Private Sub mainLoad()
+        OnlineStatusBall.Image = My.Resources.redball
         Dim screenWidth = My.Computer.Screen.Bounds.Width
         Dim screenHeight = My.Computer.Screen.Bounds.Height
         Dim myWidth = Me.Width
@@ -29,16 +45,17 @@ Public Class GatekeeperFormShaped
         If msToString(ms).Equals("Online") Then
             onlineFlag = True
             WebLoader.loadAsMS(My.Resources.SETUSER & My.User.Name)
-            OnlineStatusBall.Image = My.Resources.amberball
             printerChooser()
             processOnline()
+            processRemaining()
             OnlineStatusBall.Image = My.Resources.greenball
         Else
             onlineFlag = False
-            OnlineStatusBall.Image = My.Resources.amberball
             processOffline()
+            processRemaining()
+            OnlineStatusBall.Image = My.Resources.amberball
         End If
-        processRemaining()
+
     End Sub
 
     Private Sub printerChooser()
@@ -92,7 +109,6 @@ Public Class GatekeeperFormShaped
             Me.Refresh()
             doGetPrivFile()
         End If
-        OnlineStatusBall.Image = My.Resources.greenball
     End Sub
 
     Private Sub processMT()
@@ -172,7 +188,7 @@ Public Class GatekeeperFormShaped
         'handle return from middleman  (ok = fine, notfound = privfile not in database, offlinemode = no access to database)
     End Sub
 
-    Private Sub AcceptedButton_Click(sender As Object, e As EventArgs) Handles AcceptButton.Click
+    Private Sub AcceptedButton_Click(sender As Object, e As EventArgs) Handles myAcceptButton.Click
         If onlineFlag Then
             Dim plist As List(Of printerInfo) = pc.getSelectedPrinters()
             ms = WebLoader.loadAsMS(My.Resources.SETUSERPRINTERS & plistToString(plist))
@@ -189,8 +205,10 @@ Public Class GatekeeperFormShaped
         Threading.Thread.Sleep(5000)
         ms = WebLoader.loadAsMS(My.Resources.LATCHGATEKEEPER)
         Threading.Thread.Sleep(5000)
-        ' ms = WebLoader.loadAsMS(My.Resources.RECORDLOGIN & Environment.UserName)
-        Me.Close()
+        ms = WebLoader.loadAsMS(My.Resources.RECORDLOGIN)
+        Me.Visible = False
+
+        NotifyIcon1.Visible = True
     End Sub
 
     Private Sub sendMapPrinters(ByRef plist As List(Of String))
@@ -208,8 +226,45 @@ Public Class GatekeeperFormShaped
     End Sub
 
     Private Sub OnlineStatusBall_Click(sender As Object, e As EventArgs) Handles OnlineStatusBall.Click
-        versionLabel.Text = versionString
+        Dim version As String = regread("HKEY_LOCAL_MACHINE\SOFTWARE\asGateKeeper", "version")
+        Dim ms As MemoryStream = WebLoader.loadAsMS("http://localhost:6510/?command=GETIPA")
+        Dim ipa As String = msToString(ms)
+        versionLabel.Text = String.Format("{0}({1})", version, ipa)
     End Sub
 
+    Public Function regread(ByVal key As String, valuename As String) As String
+        Dim value
+        Try
+            value = My.Computer.Registry.GetValue(key, valuename, Nothing)
+        Catch ex As Exception
+            value = ex.Message
+        End Try
+        If value Is Nothing Then
+            value = "1.x"
+        End If
+
+        Return value
+    End Function
+
+    Private Sub NotifyIcon1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles NotifyIcon1.MouseDoubleClick
+        Dim pwf As New PasswordRequestForm
+        Dim res As DialogResult = pwf.ShowDialog
+        pwf.Visible = False
+        storePW(pwf.passwordBox.Text)
+    End Sub
+
+    Public Sub storePW(ByVal pw As String)
+        Dim wrapper As New Simple3Des("A$h3y $ch00l")
+        pw = wrapper.EncryptData(pw)
+        Dim fl As String = Environment.GetFolderPath(SpecialFolder.ApplicationData) & "\onedrivepw.dat"
+        If File.Exists(fl) Then
+            File.Delete(fl)
+        End If
+        Using outfile As New StreamWriter(fl)
+            outfile.WriteLine(pw)
+        End Using
+
+    End Sub
 #End Region
+
 End Class

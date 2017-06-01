@@ -162,6 +162,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''</summary>
+        Public ReadOnly Property greencloud() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("greencloud", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to http://localhost:6510/?command=LATCHGATEKEEPER.
         '''</summary>
         Public ReadOnly Property LATCHGATEKEEPER() As String
@@ -283,6 +293,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''</summary>
+        Public ReadOnly Property redcloud() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("redcloud", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to http://localhost:6510/?command=SETAPPDATA.
         '''</summary>
         Public ReadOnly Property SETAPPDATA() As String
@@ -333,6 +353,16 @@ Namespace My.Resources
         Public ReadOnly Property wallpaperFilename() As String
             Get
                 Return ResourceManager.GetString("wallpaperFilename", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''</summary>
+        Public ReadOnly Property whitecloud() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("whitecloud", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
             End Get
         End Property
     End Module

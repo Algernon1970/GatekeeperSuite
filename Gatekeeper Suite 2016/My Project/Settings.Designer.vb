@@ -53,17 +53,6 @@ Namespace My
                 Return defaultInstance
             End Get
         End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("server=svr-wamp;user id=gatekeeper;password=bugger;database=gatekeeperdb;port=330"& _ 
-            "6;compress=True;sslmode=Prefered")>  _
-        Public ReadOnly Property gatekeeperdbConnectionString() As String
-            Get
-                Return CType(Me("gatekeeperdbConnectionString"),String)
-            End Get
-        End Property
     End Class
 End Namespace
 

@@ -37,21 +37,22 @@ Module Utils
         ret = AddPrinterConnection(printer.connection)
         ' If eventlog1 IsNot Nothing Then
         If ret = 0 Then
-                Threading.Thread.Sleep(10000)
-                'eventlog1.WriteEntry(String.Format("Couldnt map printer {0} error {1}", printer.connection, ret))
-                retrycounter = retrycounter - 1
-                If retrycounter > 0 Then
-                    addPrinter(printer)
-                Else
-                    MsgBox("Failed to map printer " & printer.connection)
-                    ' eventlog1.WriteEntry(String.Format("Mapped printer {0} final error {1}", printer.connection, ret))
-                End If
+            'MsgBox("Failed to map " & printer.connection)
+            Threading.Thread.Sleep(10000)
+            'eventlog1.WriteEntry(String.Format("Couldnt map printer {0} error {1}", printer.connection, ret))
+            retrycounter = retrycounter - 1
+            If retrycounter > 0 Then
+                addPrinter(printer)
             Else
-                ' eventlog1.WriteEntry(String.Format("Mapped printer {0} error {1}", printer.connection, ret))
-                retrycounter = 5
+                MsgBox("Failed to map printer " & printer.connection)
+                ' eventlog1.WriteEntry(String.Format("Mapped printer {0} final error {1}", printer.connection, ret))
             End If
+        Else
+            ' eventlog1.WriteEntry(String.Format("Mapped printer {0} error {1}", printer.connection, ret))
+            retrycounter = 5
+        End If
         '  End If
-
+        'MsgBox("Mapped " & printer.connection)
         If printer.isDefault Then
             SetDefaultPrinter(printer.connection)
         End If
@@ -90,4 +91,3 @@ Public Structure printerInfo
     Dim connection As String
     Dim isDefault As Boolean
 End Structure
-

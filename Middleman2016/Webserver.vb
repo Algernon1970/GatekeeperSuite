@@ -8,7 +8,7 @@ Public Class Webserver
     Const listenerPrefix As String = "http://*:6510/"
     Dim listener As HttpListener
     Dim middleman As Middleman
-    Dim watchdog As New BackgroundWorker
+    'Dim watchdog As New BackgroundWorker
 
     Public Sub New(ByRef _caller As Middleman)
         middleman = _caller
@@ -56,6 +56,7 @@ Public Class Webserver
     Private Function handleCommands(ByVal url As String, ByRef raw As HttpListenerRequest) As MemoryStream
         Dim formattedResponse As New MemoryStream
         Dim cmd As String = raw.QueryString("command")
+        If IsNothing(cmd) Then Return New MemoryStream(Encoding.UTF8.GetBytes("OK"))
         If cmd.Equals("CHECKONLINE") Then
             formattedResponse = middleman.checkOnline
         ElseIf cmd.Equals("CHECKPRIV") Then
@@ -80,8 +81,8 @@ Public Class Webserver
             formattedResponse = middleman.processPriv()
         ElseIf cmd.Equals("GETVERSION") Then
             formattedResponse = middleman.getversion()
-        ElseIf cmd.Equals("RECORDLOGIN") Then
-            formattedResponse = middleman.recordLogin()
+            ' ElseIf cmd.Equals("RECORDLOGIN") Then
+            'formattedResponse = middleman.startWatchdog()
         ElseIf cmd.Equals("GETUSERID") Then
             formattedResponse = middleman.getUserID()
         ElseIf cmd.Equals("LATCHGATEKEEPER") Then
@@ -112,6 +113,8 @@ Public Class Webserver
             formattedResponse = middleman.mtRedirect(False)
         ElseIf cmd.Equals("SETUSERPRINTERS") Then
             formattedResponse = middleman.setUserPrinters(raw.QueryString("plist"))
+        ElseIf cmd.Equals("GETIPA") Then
+            formattedResponse = middleman.getIPA()
         End If
 
         Return formattedResponse

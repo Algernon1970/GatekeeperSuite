@@ -12,8 +12,6 @@ Public Class PrinterChooser
     Declare Function SetDefaultPrinter Lib "winspool.drv" Alias "SetDefaultPrinterA" (ByVal pszPrinter As String) As Boolean
     Declare Function GetDefaultPrinter Lib "winspool.drv" Alias "GetDefaultPrinterA" (ByVal pszBuffer() As String, ByVal pcchBuffer As Integer) As Boolean
 
-
-
     Private Sub PrinterChooser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim args As String() = Environment.GetCommandLineArgs
         If args.Count > 1 Then

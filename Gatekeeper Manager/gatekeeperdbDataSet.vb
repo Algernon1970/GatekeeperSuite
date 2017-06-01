@@ -1,4 +1,2 @@
-﻿
-
-Partial Public Class gatekeeperdbDataSet
+﻿Partial Public Class gatekeeperdbDataSet
 End Class
