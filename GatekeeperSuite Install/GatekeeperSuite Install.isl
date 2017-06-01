@@ -339,16 +339,16 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
-		<row><td>Gatekeeper_Suite_2016.Primary_output</td><td>{4F821150-0325-4BBD-8667-528D50BA9381}</td><td>GATEKEEPER2016</td><td>2</td><td/><td>gatekeeper_suite_2016.primar</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Gatekeeper_Suite_2016.Primary_output</td><td>{4F821150-0325-4BBD-8667-528D50BA9381}</td><td>GATEKEEPER2016</td><td>258</td><td/><td>gatekeeper_suite_2016.primar</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{766955BA-AB15-41B8-95FE-6C8BDAF21F6F}</td><td>ProgramFiles64Folder</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{EE27C0F0-9D6F-4DC4-9B47-4A0835585CF2}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{5FCDF632-E089-4198-AF11-8509A2F1B435}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT3</td><td>{D4B9823A-ADD3-4E82-A70D-E92CAD5EF91D}</td><td>GATEKEEPER2016</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{EE27C0F0-9D6F-4DC4-9B47-4A0835585CF2}</td><td>INSTALLDIR</td><td>258</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{5FCDF632-E089-4198-AF11-8509A2F1B435}</td><td>INSTALLDIR</td><td>258</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT3</td><td>{D4B9823A-ADD3-4E82-A70D-E92CAD5EF91D}</td><td>GATEKEEPER2016</td><td>258</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT4</td><td>{45A8DA10-5BD1-445D-85AB-092C20DA39BA}</td><td>ProgramFilesFolder</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT5</td><td>{316C2921-8BAA-4926-9244-CA9DD748E99E}</td><td>CommonAppDataFolder</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT6</td><td>{E83D396E-4B27-4E85-AD85-69DB6BA9D771}</td><td>ASHBY_SCHOOL1</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Middleman2016.Primary_output</td><td>{A5AFC276-D508-4FD8-887A-946F5DFCBA0F}</td><td>GATEKEEPER2016</td><td>2</td><td/><td>middleman2016.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>UserUtilities.Primary_output</td><td>{6B585013-73DD-464B-8D13-6F2E66A4BAF2}</td><td>GATEKEEPER2016</td><td>2</td><td/><td>userutilities.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Middleman2016.Primary_output</td><td>{A5AFC276-D508-4FD8-887A-946F5DFCBA0F}</td><td>GATEKEEPER2016</td><td>258</td><td/><td>middleman2016.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>UserUtilities.Primary_output</td><td>{6B585013-73DD-464B-8D13-6F2E66A4BAF2}</td><td>GATEKEEPER2016</td><td>258</td><td/><td>userutilities.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1155,7 +1155,7 @@
 		<col def="I4">ISAttributes</col>
 		<col def="S255">ISFolderName</col>
 		<row><td>ALLUSERSPROFILE</td><td>TARGETDIR</td><td>.:ALLUSE~1|All Users</td><td/><td>0</td><td/></row>
-		<row><td>ASHBY_SCHOOL</td><td>ProgramFilesFolder</td><td>ASHBYS~1|Ashby School</td><td/><td>0</td><td/></row>
+		<row><td>ASHBY_SCHOOL</td><td>ProgramFiles64Folder</td><td>ASHBYS~1|Ashby School</td><td/><td>0</td><td/></row>
 		<row><td>ASHBY_SCHOOL1</td><td>CommonAppDataFolder</td><td>ASHBYS~1|Ashby School</td><td/><td>0</td><td/></row>
 		<row><td>AdminToolsFolder</td><td>TARGETDIR</td><td>.:Admint~1|AdminTools</td><td/><td>0</td><td/></row>
 		<row><td>AppDataFolder</td><td>TARGETDIR</td><td>.:APPLIC~1|Application Data</td><td/><td>0</td><td/></row>

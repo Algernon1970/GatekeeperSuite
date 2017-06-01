@@ -14,7 +14,7 @@ Public Class DriveMapper
     Dim gatekeeperevents As EventLog
 
     Public Sub New(ByRef log As EventLog)
-        CustomLogger.writeEntry(appdata & "\log.txt", "Starting DriveMapper")
+        ' CustomLogger.writeEntry(appdata & "\log.txt", "Starting DriveMapper")
     End Sub
 
     Private Sub setupCommandStore()
@@ -101,10 +101,10 @@ Public Class DriveMapper
         End Try
 
         If IsNothing(test) Then
-            CustomLogger.writeEntry(appdata & "\log.txt", "Not On Domain")
+            'CustomLogger.writeEntry(appdata & "\log.txt", "Not On Domain")
             Return False
         Else
-            CustomLogger.writeEntry(appdata & "\log.txt", "On Domain")
+            ' CustomLogger.writeEntry(appdata & "\log.txt", "On Domain")
             Return True
         End If
     End Function
