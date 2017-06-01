@@ -55,6 +55,10 @@
         Return cpList
     End Function
 
+    Private Sub PrinterListBox_MouseMove(sender As Object, e As MouseEventArgs) Handles PrinterListBox.MouseMove
+        PrinterListBox.SelectedIndex = PrinterListBox.IndexFromPoint(e.X, e.Y)
+    End Sub
+
     'Private Sub PrinterListBox_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles PrinterListBox.ItemCheck
     '    If PrinterListBox.SelectedItem.isdefault = True Then
     '        PrinterListBox.SelectedItem.isdefault = False

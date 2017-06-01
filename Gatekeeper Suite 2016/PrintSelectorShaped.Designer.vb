@@ -29,11 +29,13 @@ Partial Class PrintSelectorShaped
         'PrinterListBox
         '
         Me.PrinterListBox.BackColor = System.Drawing.Color.LightGray
+        Me.PrinterListBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.PrinterListBox.FormattingEnabled = True
         Me.PrinterListBox.Location = New System.Drawing.Point(68, 119)
         Me.PrinterListBox.Name = "PrinterListBox"
-        Me.PrinterListBox.Size = New System.Drawing.Size(201, 334)
+        Me.PrinterListBox.Size = New System.Drawing.Size(201, 330)
         Me.PrinterListBox.TabIndex = 0
+        Me.PrinterListBox.UseCompatibleTextRendering = True
         '
         'MakeDefaultButton
         '

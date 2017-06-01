@@ -86,11 +86,9 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AshbyTools">
-      <HintPath>..\..\AS-Library-Tools\AshbyTools\AshbyTools\bin\Debug\AshbyTools.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Data">
-      <HintPath>..\..\..\..\MySQLConnector\bin\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="ProcessExtensions">
+      <HintPath>..\..\CreateProcessAsUser-master\ProcessExtensions\bin\ProcessExtensions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -215,7 +213,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ADToolsLibrary\ADToolsLibrary.vbproj">
-      <Project>{CD8AF7D8-4720-423B-AD71-251FC7DFB7E5}</Project>
+      <Project>{cd8af7d8-4720-423b-ad71-251fc7dfb7e5}</Project>
       <Name>ADToolsLibrary</Name>
     </ProjectReference>
   </ItemGroup>

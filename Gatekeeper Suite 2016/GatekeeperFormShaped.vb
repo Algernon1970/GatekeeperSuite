@@ -9,6 +9,7 @@ Public Class GatekeeperFormShaped
     Dim ms As MemoryStream
     Dim pc As New PrintSelectorShaped
     Dim onlineFlag As Boolean = False
+    Dim versionString = "v1.03 32bit"
 
     Private Sub GatekeeperForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         mainLoad()
@@ -204,6 +205,10 @@ Public Class GatekeeperFormShaped
             ms = WebLoader.loadAsMS(My.Resources.MAPTHESEPRINTERS & paramString)
             ' MsgBox(msToString(ms))
         End If
+    End Sub
+
+    Private Sub OnlineStatusBall_Click(sender As Object, e As EventArgs) Handles OnlineStatusBall.Click
+        versionLabel.Text = versionString
     End Sub
 
 #End Region

@@ -26,6 +26,7 @@ Partial Class GatekeeperFormShaped
         Me.DeclineButton = New System.Windows.Forms.PictureBox()
         Me.Outbox = New System.Windows.Forms.RichTextBox()
         Me.OnlineStatusBall = New System.Windows.Forms.PictureBox()
+        Me.versionLabel = New System.Windows.Forms.Label()
         CType(Me.AcceptButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DeclineButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OnlineStatusBall, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -70,6 +71,14 @@ Partial Class GatekeeperFormShaped
         Me.OnlineStatusBall.TabIndex = 3
         Me.OnlineStatusBall.TabStop = False
         '
+        'versionLabel
+        '
+        Me.versionLabel.AutoSize = True
+        Me.versionLabel.Location = New System.Drawing.Point(152, 566)
+        Me.versionLabel.Name = "versionLabel"
+        Me.versionLabel.Size = New System.Drawing.Size(0, 13)
+        Me.versionLabel.TabIndex = 4
+        '
         'GatekeeperFormShaped
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -78,6 +87,7 @@ Partial Class GatekeeperFormShaped
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(668, 603)
         Me.ControlBox = False
+        Me.Controls.Add(Me.versionLabel)
         Me.Controls.Add(Me.OnlineStatusBall)
         Me.Controls.Add(Me.Outbox)
         Me.Controls.Add(Me.DeclineButton)
@@ -95,6 +105,7 @@ Partial Class GatekeeperFormShaped
         CType(Me.DeclineButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OnlineStatusBall, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -102,4 +113,5 @@ Partial Class GatekeeperFormShaped
     Friend WithEvents DeclineButton As PictureBox
     Friend WithEvents Outbox As RichTextBox
     Friend WithEvents OnlineStatusBall As PictureBox
+    Friend WithEvents versionLabel As Label
 End Class

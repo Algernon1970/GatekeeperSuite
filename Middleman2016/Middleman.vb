@@ -2,17 +2,19 @@
 Imports System.Text
 Imports System.Xml.Serialization
 Imports System.Net
-
+Imports System.Runtime.InteropServices
+Imports murrayju.ProcessExtensions
+Imports ADToolsLibrary
 Imports System.DirectoryServices.AccountManagement
 Imports System.Configuration
-Imports AshbyTools.murrayju.ProcessExtensions
+Imports System.ComponentModel
 
 Public Class Middleman
     Dim ws As New Webserver(Me)
     Dim user As New user
     Dim online As Boolean
     Dim computerID As Integer = 0
-
+    Dim adTools As New ADTools()
     Dim localAppData As Boolean = False
 
     Dim getUserIDOverflow As Boolean = False
@@ -71,8 +73,8 @@ Public Class Middleman
     End Function
 
     Private Function checkGroup(ByVal grpName As String) As Boolean
-        Using ctx As PrincipalContext = ADToolsLibrary.ADTools.getConnection("as.internal", "OU=Security Groups,OU=AS Groups,OU=Ashby School,DC=as,DC=internal")
-            Using gtx As GroupPrincipal = ADToolsLibrary.ADTools.getGroupPrincipalbyName(ctx, grpName)
+        Using ctx As PrincipalContext = ADTools.getConnection("as.internal", "OU=Security Groups,OU=AS Groups,OU=Ashby School,DC=as,DC=internal")
+            Using gtx As GroupPrincipal = ADTools.getGroupPrincipalbyName(ctx, grpName)
                 For Each member In gtx.GetMembers
                     Dim name As String = member.Name
                     If name.Equals(My.Computer.Name) Then
