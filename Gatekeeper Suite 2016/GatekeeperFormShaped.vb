@@ -145,10 +145,14 @@ Public Class GatekeeperFormShaped
     End Sub
 
     Private Sub DeclineButton_Click(sender As Object, e As EventArgs) Handles DeclineButton.Click
+        DeclineClicked()
+    End Sub
+
+    Private Shared Sub DeclineClicked()
         logout()
         Application.Exit()
-
     End Sub
+
     Public Shared Sub logout()
         'Force Logout
         Dim t As Single
@@ -189,6 +193,10 @@ Public Class GatekeeperFormShaped
     End Sub
 
     Private Sub AcceptedButton_Click(sender As Object, e As EventArgs) Handles myAcceptButton.Click
+        AcceptClicked()
+    End Sub
+
+    Private Sub AcceptClicked()
         If onlineFlag Then
             Dim plist As List(Of printerInfo) = pc.getSelectedPrinters()
             ms = WebLoader.loadAsMS(My.Resources.SETUSERPRINTERS & plistToString(plist))
@@ -264,6 +272,14 @@ Public Class GatekeeperFormShaped
             outfile.WriteLine(pw)
         End Using
 
+    End Sub
+
+    Private Sub Outbox_KeyDown(sender As Object, e As KeyEventArgs) Handles Outbox.KeyDown
+        If e.KeyCode.Equals(Keys.A) Then
+            AcceptClicked()
+        ElseIf e.KeyCode.Equals(Keys.D) Then
+            DeclineClicked()
+        End If
     End Sub
 #End Region
 
